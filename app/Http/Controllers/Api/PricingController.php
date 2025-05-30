@@ -15,7 +15,8 @@ class PricingController extends Controller
     public function index()
     {
         $pricingRules = PricingRule::with('product')->paginate(10);
-        return view('pricing', compact('pricingRules'));
+        $products = Product::all();
+        return view('pricing', compact('pricingRules', 'products'));
     }
 
     /**

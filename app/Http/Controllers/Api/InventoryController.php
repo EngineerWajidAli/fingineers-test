@@ -25,7 +25,8 @@ class InventoryController extends Controller
             });
         }
         $inventories = $query->paginate(10);
-        return view('inventory', compact('inventories'));
+        $products = Product::all();
+        return view('inventory', compact('inventories', 'products'));
     }
 
     /**
@@ -33,7 +34,15 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'product_id' => 'required|exists:products,id',
+            'stock_level' => 'required|integer|min:0',
+            'location' => 'nullable|string',
+            'cost' => 'nullable|numeric',
+            'lot_number' => 'nullable|string',
+        ]);
+        Inventory::create($request->all());
+        return redirect()->route('inventory.index')->with('success', 'Inventory item added!');
     }
 
     /**

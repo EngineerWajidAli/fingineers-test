@@ -2,6 +2,34 @@
 @section('content')
     <div class="container">
         <h1>Inventory Management</h1>
+        <form method="POST" action="{{ route('inventory.store') }}" class="mb-3">
+            @csrf
+            <div class="row">
+                <div class="col">
+                    <select name="product_id" class="form-control" required>
+                        <option value="">Select Product</option>
+                        @foreach ($products as $product)
+                            <option value="{{ $product->id }}">{{ $product->sku }} - {{ $product->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col">
+                    <input type="number" name="stock_level" placeholder="Stock Level" class="form-control" required>
+                </div>
+                <div class="col">
+                    <input type="text" name="location" placeholder="Location" class="form-control">
+                </div>
+                <div class="col">
+                    <input type="number" step="0.01" name="cost" placeholder="Cost" class="form-control">
+                </div>
+                <div class="col">
+                    <input type="text" name="lot_number" placeholder="Lot Number" class="form-control">
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Add Inventory</button>
+                </div>
+            </div>
+        </form>
         <form method="GET" action="{{ route('inventory.index') }}" class="mb-3">
             <input type="text" name="search" placeholder="Search by name or SKU" value="{{ request('search') }}">
             <button type="submit" class="btn btn-primary btn-sm">Filter</button>

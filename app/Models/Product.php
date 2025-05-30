@@ -9,6 +9,12 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'sku',
+        'name',
+        'description'
+    ];
+
     public function inventories()
     {
         return $this->hasMany(Inventory::class);
