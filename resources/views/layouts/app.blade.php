@@ -22,7 +22,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand btn btn-primary" href="{{ url('/') }}">
+                <a class="navbar-brand btn btn-primary" href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 @if (Auth::check() && Auth::user()->role === 'admin')
