@@ -1,3 +1,13 @@
+<!-- 
+    place this project xampp or wampp
+    open directory and run command 
+    -- php artisan serve
+    -- npm run dev
+
+    new registered user will be by default admin
+    you can change user role from admin to client in database->users table
+    images of sample project included in sample_images folder
+ -->
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
