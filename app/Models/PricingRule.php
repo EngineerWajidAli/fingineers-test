@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class PricingRule extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'product_id',
+        'rule_type',
+        'min_quantity',
+        'discount_amount',
+        'markup_amount',
+        'valid_from',
+        'valid_to',
+        'precedence'
+    ];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

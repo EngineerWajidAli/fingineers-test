@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\AuditLog;
 
 class AuditLogController extends Controller
 {
@@ -12,7 +13,8 @@ class AuditLogController extends Controller
      */
     public function index()
     {
-        //
+        $auditLogs = AuditLog::with('transaction')->paginate(10);
+        return view('audit_logs', compact('auditLogs'));
     }
 
     /**

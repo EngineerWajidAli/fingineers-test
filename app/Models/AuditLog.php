@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class AuditLog extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'transaction_id',
+        'action',
+        'details'
+    ];
+
+    public function transaction()
+    {
+        return $this->belongsTo(Transaction::class);
+    }
 }
