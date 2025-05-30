@@ -15,13 +15,11 @@ return new class extends Migration
         {
             $table->id();
             $table->foreignId('product_id')->constrained('products');
-            $table->enum('rule_type', ['time', 'quantity']);
+            $table->json('days')->nullable();
+            $table->json('discounts')->nullable();
             $table->integer('min_quantity')->nullable();
-            $table->decimal('discount_amount', 10, 2)->nullable();
-            $table->decimal('markup_amount', 10, 2)->nullable();
-            $table->timestamp('valid_from')->nullable();
-            $table->timestamp('valid_to')->nullable();
-            $table->integer('precedence')->default(0);
+            $table->decimal('quantity_discount', 10, 2)->nullable();
+            $table->integer('precedence')->nullable();
             $table->timestamps();
         });
     }

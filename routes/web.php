@@ -37,4 +37,6 @@ Route::middleware(['auth'])->group(function ()
     Route::get('/audit-logs', [App\Http\Controllers\Api\AuditLogController::class, 'index'])->name('audit_logs.index');
 
     Route::resource('products', App\Http\Controllers\Api\ProductController::class);
+
+    Route::resource('pricing', App\Http\Controllers\Api\PricingController::class)->except(['show']);
 });

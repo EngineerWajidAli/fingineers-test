@@ -11,13 +11,16 @@ class PricingRule extends Model
 
     protected $fillable = [
         'product_id',
-        'rule_type',
+        'days',
+        'discounts',
         'min_quantity',
-        'discount_amount',
-        'markup_amount',
-        'valid_from',
-        'valid_to',
+        'quantity_discount',
         'precedence'
+    ];
+
+    protected $casts = [
+        'days' => 'array',
+        'discounts' => 'array',
     ];
 
     public function product()
