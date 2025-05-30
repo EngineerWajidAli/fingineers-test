@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('product_id')->constrained('products');
             $table->integer('quantity');
+            $table->decimal('sale_price', 10, 2)->nullable();
             $table->enum('transaction_type', ['sale', 'restock', 'adjustment']);
             $table->timestamps();
         });

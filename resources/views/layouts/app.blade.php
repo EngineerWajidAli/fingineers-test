@@ -33,8 +33,8 @@
                     <a class="navbar-brand" href="{{ url('/audit-logs') }}">Audit Logs</a>
                 @endif
                 @if (Auth::check())
-                    <a class="navbar-brand" href="{{ url('/shop') }}">Shop</a>
-                    <a class="navbar-brand" href="{{ url('/my-sales') }}">My Purchases</a>
+                    <a class="navbar-brand btn btn-success" href="{{ url('/shop') }}">Shop</a>
+                    <a class="navbar-brand btn btn-success" href="{{ url('/my-sales') }}">My Purchases</a>
                 @endif
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

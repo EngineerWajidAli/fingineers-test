@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table)
         {
-            $table->string('role')->default('client')->after('email');
+            $table->string('role')->default('admin')->after('email');
         });
     }
 

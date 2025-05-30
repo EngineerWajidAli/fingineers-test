@@ -62,6 +62,7 @@ class ShopController extends Controller
                 'product_id' => $product->id,
                 'quantity' => $quantity,
                 'transaction_type' => 'sale',
+                'sale_price' => $finalPrice,
             ]);
             DB::commit();
             return redirect()->route('shop.sales')->with('success', 'Purchase successful! Final price: ' . number_format($finalPrice, 2));
@@ -75,7 +76,7 @@ class ShopController extends Controller
 
     public function sales()
     {
-        $sales = Transaction::where('transaction_type', 'sale')->where('product_id', '!=', null)->paginate(10);
+        $sales = Transaction::with(['product', 'product.inventories'])->where('transaction_type', 'sale')->where('product_id', '!=', null)->paginate(10);
         return view('shop.sales', compact('sales'));
     }
 }

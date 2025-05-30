@@ -12,7 +12,8 @@ class Transaction extends Model
     protected $fillable = [
         'product_id',
         'quantity',
-        'transaction_type'
+        'transaction_type',
+        'sale_price',
     ];
 
     public function product()
